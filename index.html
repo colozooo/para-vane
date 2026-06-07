@@ -1,0 +1,99 @@
+<html>
+
+<head>
+    <title>Feliz Cumpleaños</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="loader">
+                <button id="play">Comenzar</button>
+            </div>
+        </div>
+    </div>
+    <audio class="song" controls loop>
+        <source src="music.mp3">
+        </source>
+        Your browser isn't invited for super fun audio time.
+    </audio>
+    <canvas id="confetti"></canvas>
+    <div class="main">
+        <div class="container pt-5">
+            <div class="row">
+
+                <div class="col-12 col-xl-6 mx-auto">
+                    <img src="img/banner.png" alt="">
+                </div>
+
+                <div class="col-12 text-center">
+                    <div id="name" class="area">Vane</div>
+                </div>
+
+                <div class="col-12 text-center">
+                    <div class="type-wrap">
+                        <div id="typed-strings" class="typing">
+                            <h2>Feliz Cumpleaños <i id="nae">Vane</i></h2>
+                            <h2>Que tengas un día maravilloso</h2>
+                            <h2>Lleno de alegría y felicidad.</h2>
+                        </div>
+                        <span id="typed" style="white-space:pre;"></span>
+                    </div>
+                </div>
+
+                <!-- Contenedor de la zona del pastel, regalo y tarjeta -->
+                <div class="col-12 col-xl-5 cake mx-auto text-center">
+                    
+                    <!-- 1. El pastel -->
+                    <img id="el-pastel" src="img/cake.gif" alt="Pastel" style="width: 100%; max-width: 350px; margin: 0 auto;">
+                    
+                    <!-- 2. El regalo (abajo del pastel) -->
+                    <img id="regalo" src="img/regalo.png" alt="¡Abre tu regalo!" style="width: 80px; cursor: pointer; display: inline-block; margin-top: 15px; position: relative; z-index: 9999;">
+                    
+                    <!-- 3. La Gifcard (Corregida: más ancha horizontalmente y con espacio superior ideal para la zona azul) -->
+                    <img id="gifcard" src="img/gifcard.png" alt="Tarjeta de Regalo" style="display: none; width: 100%; max-width: 480px; margin: 30px auto 0 auto; position: relative; z-index: 9999;">
+                    
+                </div>
+
+            </div>
+        </div>
+        <img src="img/Balloon-Border.png" width="100%" class="balloon-border">
+    </div>
+</body>
+<script src="https://unpkg.com/magic-snowflakes/dist/snowflakes.min.js"></script>
+<script src="js/jquery.js"></script>
+<script src="js/typed.min.js"></script>
+<script src="js/script.js"></script>
+
+<!-- Script de animación -->
+<script>
+    $(document).ready(function() {
+        $('#regalo').click(function() {
+            
+            // 1. Ocultar el texto cambiante y el pastel
+            $('.type-wrap').fadeOut(800);
+            $('#el-pastel').fadeOut(800, function() {
+                
+                // 2. El regalo se agranda hacia el centro del espacio vacío
+                $('#regalo').animate({
+                    width: '180px',
+                    marginTop: '-60px'
+                }, 1000, function() {
+                    
+                    // 3. El regalo se desvanece
+                    $('#regalo').fadeOut(600, function() {
+                        
+                        // 4. Aparece la gifcard grande y perfectamente posicionada abajo
+                        $('#gifcard').fadeIn(800);
+                    });
+                });
+            });
+        });
+    });
+</script>
+
+</html>
