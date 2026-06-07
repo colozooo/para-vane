@@ -6,6 +6,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="style.css">
+
+    <!-- Añadimos estos estilos para corregir el botón en celulares -->
+    <style>
+        #play {
+            padding-left: 15px !important;
+            padding-right: 15px !important;
+            white-space: nowrap;
+        }
+        
+        /* Si la pantalla es pequeña como la de un celular, encogemos un poco la letra */
+        @media (max-width: 576px) {
+            #play {
+                font-size: 20px !important; /* Ajusta este número si quieres la letra más chica o más grande */
+                min-width: 160px !important; /* Le da una base cómoda al botón dorado */
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -54,7 +71,7 @@
                     <!-- 2. El regalo (abajo del pastel) -->
                     <img id="regalo" src="img/regalo.png" alt="¡Abre tu regalo!" style="width: 80px; cursor: pointer; display: inline-block; margin-top: 15px; position: relative; z-index: 9999;">
                     
-                    <!-- 3. La Gifcard (Corregida: más ancha horizontalmente y con espacio superior ideal para la zona azul) -->
+                    <!-- 3. La Gifcard -->
                     <img id="gifcard" src="img/gifcard.png" alt="Tarjeta de Regalo" style="display: none; width: 100%; max-width: 480px; margin: 30px auto 0 auto; position: relative; z-index: 9999;">
                     
                 </div>
